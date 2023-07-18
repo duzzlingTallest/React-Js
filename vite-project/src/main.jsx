@@ -9,8 +9,8 @@ import FunComp from './components/FunComp.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    {/* <App /> */}
-    <ClassComp />
-    <FunComp/>
+    <App />
+    {/* <ClassComp />
+    <FunComp/> */}
   </React.StrictMode>,
 )
