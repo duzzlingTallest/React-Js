@@ -4,7 +4,7 @@ export default function Project2() {
 
     let [index, setIndex] = useState(0)
 
-    let arr = ["red", "green", "yellow", "blue", "brown"];
+    let arr = ["red", "green", "yellow", "blue", "brown", "chocolate", "orange"];
 
     function changeColor(params) {
     //         if (index < arr.length) {
