@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import "../app.scss"
 
-export default function Use_State() {
+export default function Use_State_fun() {
     let [count, setCount] = useState(0)
 
 
@@ -10,7 +10,7 @@ export default function Use_State() {
 
     function inc(params) {
         x++
-        console.log("🚀 ~ file: Use_State.jsx:7 ~ inc ~ x:", x)
+        console.log("🚀 ~ file: Use_State_fun.jsx:7 ~ inc ~ x:", x)
     }
 
     function intCount(params) {
