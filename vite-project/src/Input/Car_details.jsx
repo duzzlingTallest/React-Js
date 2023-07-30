@@ -3,8 +3,8 @@ import "./input.scss";
 import { Button, Table } from "react-bootstrap";
 import { useState } from "react";
 
-export default function Multi_input_sir() {
-  let [data, setData] = useState({ email: "", password: "", name: "" });
+export default function Car_details() {
+  let [data, setData] = useState({ Cname: "", Cnumber: "", Pdate: "" });
   let [arrData, setArrData] = useState([]);
 
   // to get data from input and store them in data state
@@ -14,38 +14,38 @@ export default function Multi_input_sir() {
     console.log("data:", data);
   }
 
-  // to cleate input feild
+  // to create input feild
   function handlerSubmit() {
     setArrData([...arrData, data]);
     console.log("🚀 ~ rrData:", arrData);
-    setData({ email: "", password: "", name: "" });
+    setData({ Cname: "", Cnumber: "", Pdate: "" });
   }
   return (
     <>
       <div className="inputDiv">
-        <label htmlFor="name">Email : </label>
+        <label htmlFor="name">Car Name : </label>
         <input
-          value={data.email}
+          value={data.Cname}
           onChange={(e) => getData(e)}
           type="text"
-          name="email"
-          placeholder="Enter name"
+          name="Cname"
+          placeholder="Enter Car Name"
         />
-        <label htmlFor="name">Password : </label>
+        <label htmlFor="name">Car Number : </label>
         <input
-          value={data.password}
+          value={data.Cnumber}
           type="text"
-          name="password"
+          name="Cnumber"
           onChange={(e) => getData(e)}
-          placeholder="Enter Address"
+          placeholder="Enter Car Number"
         />
-        <label htmlFor="name">Name : </label>
+        <label htmlFor="name">Purches Date : </label>
         <input
-          value={data.name}
+          value={data.Pdate}
           type="text"
-          name="name"
+          name="Pdate"
           onChange={(e) => getData(e)}
-          placeholder="Enter Name"
+          placeholder="Enter Purches Date"
         />
         <Button
           onClick={() => handlerSubmit()}
@@ -64,18 +64,18 @@ export default function Multi_input_sir() {
               <thead>
                 <tr>
                   <th>No.</th>
-                  <th>Email</th>
-                  <th>Password</th>
-                  <th>Name</th>
+                  <th>Car Name</th>
+                  <th>Car Number</th>
+                  <th>Purches Date</th>
                 </tr>
               </thead>
               <tbody>
                 {arrData.map((item, index) => (
                   <tr key={index}>
                     <td>{index + 1}</td>
-                    <td>{item.email}</td>
-                    <td>{item.password}</td>
-                    <td>{item.name}</td>
+                    <td>{item.Cname}</td>
+                    <td>{item.Cnumber}</td>
+                    <td>{item.Pdate}</td>
                   </tr>
                 ))}
               </tbody>

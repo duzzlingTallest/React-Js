@@ -23,9 +23,10 @@ import Input_Add from './Input/Input_Add'
 import Input_name from './Input/Input_name'
 import Input_num from './Input/Input_num'
 import Card from 'react-bootstrap/Card';
-import Multi_input from './Input/Multi_input'
-import Multi_input_sir from './Input/Multi_input_sir'
-import InputClass from './Input/inputClass'
+import Multi_input from './Input/Car_details'
+import Car_details from './Input/Car_details'
+import City_data from './Input/City_data'
+import UserData from './Input/UserData'
 
 
 
@@ -64,11 +65,12 @@ function App() {
       <Input_num/> <hr />
       <Input_Add/> <hr /> */}
       {/* <Input_Add/> */}
-      <InputClass />
+      {/* <InputClass /> */}
 
       {/* -------------------Multi Input ------------------- */}
-      {/* <Multi_input_sir/> */}
-      {/* <Multi_input/> */}
+      {/* <Car_details/> */}
+      {/* <City_data/> */}
+      <UserData/>
 
     </div>
 
