@@ -38,6 +38,7 @@ export default function Pop_pop() {
 
   function sc(params) {
     setArrData([...arrData, data])
+    setShow(false)
     console.log("<--->", arrData);
     setData({
       uName: "",
@@ -49,10 +50,11 @@ export default function Pop_pop() {
   }
 
   function updateData() {
-    console.log("----", ind, name);
-    arr.splice(ind, 1, name);
-    setArr([...arr]);
-    setName("");
+    console.log("----", ind, data);
+    arrData.splice(ind, 1, data);
+    setArrData([...arrData]);
+    setData("");
+    setShow(false)
     setIsNew(true);
   }
 
@@ -66,9 +68,10 @@ export default function Pop_pop() {
   // for update
   function handleUpdate(index, data) {
     console.log("====>", index, data);
-    setData(data);
+    setData({ ...data });
     setIsNew(false);
     setInd(index);
+    setShow(true)
   }
 
   return (
@@ -114,7 +117,7 @@ export default function Pop_pop() {
         </>
         <Modal.Footer >
           {isNew ? (
-            <Button variant="primary" onClick={() => sc(handleClose)}>
+            <Button variant="primary" onClick={() => sc()}>
               Add Data{/* Save Changes */}
             </Button>
           ) : (
@@ -142,14 +145,14 @@ export default function Pop_pop() {
               </tr>
             </thead>
             <tbody>
-              {arrData.map((i, e) => (
-                <tr key={e}>
-                  <td>{e + 1}</td>
-                  <td>{i.uName}</td>
-                  <td>{i.uNum}</td>
-                  <td>{i.uAdd}</td>
-                  <td>{i.uMail}</td>
-                  <td>{i.uPass}</td>
+              {arrData.map((e, i) => (
+                <tr key={i}>
+                  <td>{i + 1}</td>
+                  <td>{e.uName}</td>
+                  <td>{e.uNum}</td>
+                  <td>{e.uAdd}</td>
+                  <td>{e.uMail}</td>
+                  <td>{e.uPass}</td>
                   <td>
                     <Button className='btn' variant='danger' onClick={() => deleteData(e)}>Delete</Button>
                     <Button

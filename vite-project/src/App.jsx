@@ -30,6 +30,8 @@ import UserData from './Input/UserData'
 import User_Data_Class from './Input/User_Data_Class'
 import Update from './Input/Update'
 import Pop_pop from './Input/Pop_pop'
+import Api from './API/Api'
+import Api_2 from './API/Api_2'
 
 
 function App() {
@@ -72,10 +74,13 @@ function App() {
       {/* -------------------Multi Input ------------------- */}
       {/* <Car_details/> */}
       {/* <City_data/> */}
-      <UserData/>
+      {/* <UserData/> */}
       {/* <User_Data_Class/> */}
       {/* <Update/> */}
       {/* <Pop_pop/> */}
+      {/* <Api/> */}
+      <Api_2/>
+
     </div>
 
   )
