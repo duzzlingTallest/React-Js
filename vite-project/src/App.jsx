@@ -27,7 +27,9 @@ import Multi_input from './Input/Car_details'
 import Car_details from './Input/Car_details'
 import City_data from './Input/City_data'
 import UserData from './Input/UserData'
-
+import User_Data_Class from './Input/User_Data_Class'
+import Update from './Input/Update'
+import Pop_pop from './Input/Pop_pop'
 
 
 function App() {
@@ -71,7 +73,9 @@ function App() {
       {/* <Car_details/> */}
       {/* <City_data/> */}
       <UserData/>
-
+      {/* <User_Data_Class/> */}
+      {/* <Update/> */}
+      {/* <Pop_pop/> */}
     </div>
 
   )

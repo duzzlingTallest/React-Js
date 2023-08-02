@@ -14,7 +14,6 @@ export default function UserData() {
     })
 
     let [arrData, setArrData] = useState([])
-    let [rows] = useState([])
 
     // to get the data from the input and store it in the state
 
@@ -41,9 +40,29 @@ export default function UserData() {
     // Delete the data from the input and store it in the state
 
     function deleteData(index) {
-            rows = rows.filter((item, i) => i!== index)
-            setArrData(rows)
-        }
+        const rows = arrData.filter((item, i) => i !== index)
+        setArrData(rows)
+    }
+
+    // Update
+
+    let [isNew, setIsNew] = useState(true)
+    let [ind, setInd] = useState(null)  // we have to give null because 0 is already available in array as index
+
+    function handleUpdate(index, data) {
+        console.log("====>", index, data);
+        setData(data) // ?
+        setIsNew(false); // ?
+        setInd(index)
+    }
+
+    function updateData() {
+        console.log("----",ind,data);
+        arr.splice(ind,1,data)
+        setArrData([...arrData])
+        setData("")
+        setIsNew(true)
+    }
 
 
 
@@ -55,14 +74,14 @@ export default function UserData() {
 
             <div id="form">
 
-                {/* <div className='uDiv'>
-        <label htmlFor="">User Name : </label>
-        <label htmlFor=""> Number : </label>
-        <label htmlFor=""> Address : </label>
-        <label htmlFor="">E-mail Id : </label>
-        <label htmlFor=""> Password : </label>
-        <label htmlFor="">User Name : </label>
-    </div> */}
+                            {/* <div className='uDiv'>
+                    <label htmlFor="">User Name : </label>
+                    <label htmlFor=""> Number : </label>
+                    <label htmlFor=""> Address : </label>
+                    <label htmlFor="">E-mail Id : </label>
+                    <label htmlFor=""> Password : </label>
+                    <label htmlFor="">User Name : </label>
+                </div> */}
 
 
 
@@ -95,8 +114,16 @@ export default function UserData() {
                         <label htmlFor="message"></label>
                         <input type="text" name="uPass" placeholder='Password' onChange={(eve) => getData(eve)} value={data.uPass} />
                     </div>
+                
+                    {/* Update Condoition */}
 
-                    <Button className='btn' variant='#e58f0e' onClick={() => sub()}>Submit</Button>
+                    {isNew ? (
+                        <Button className='btn' variant='#e58f0e' onClick={() => sub()}>Submit</Button>
+                    ):(
+                        <Button className='btn' variant='#primary' onClick={() => updateData()}>Update</Button>
+                    )}
+
+                    
                 </form>
             </div>
 
@@ -129,6 +156,9 @@ export default function UserData() {
                                         <td>{i.uPass}</td>
                                         <td>
                                             <Button className='btn' variant='danger' onClick={() => deleteData(e)}>Delete</Button>
+                                        
+                                        
+                                            <Button className='btn' variant='primary' onClick={() => handleUpdate(i, e)}>Update</Button>
                                         </td>
                                     </tr>
                                 ))}
@@ -137,7 +167,9 @@ export default function UserData() {
                     </div>
 
                 </>
-            ) : null}
+            ) : (
+                <h1>Data Not Available....!</h1>
+            )}
         </>
     )
 }
