@@ -32,13 +32,20 @@ import Update from './Input/Update'
 import Pop_pop from './Input/Pop_pop'
 import Api from './API/Api'
 import Api_2 from './API/Api_2'
+import PropsArr from './Props_pro/PropsArr'
+import NavCom from './ANTD/NavCom'
+import SliderCom from './ANTD/SliderCom'
+import LocalStorage from './localstorage/LocalStorage'
+import Test from './localstorage/test'
+import UserDataLs from './localstorage/UserDataLs'
+
 
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div>
+    <div className='w-100%'>
       {/* ------------------- Use State -------------------*/}
       {/* 
     <Use_State_fun/>
@@ -79,7 +86,22 @@ function App() {
       {/* <Update/> */}
       {/* <Pop_pop/> */}
       {/* <Api/> */}
-      <Api_2/>
+      {/* <Api_2/> */}
+
+      {/* ------------------- Props Pro ------------------- */}
+
+      {/* <PropsArr /> */}
+
+      {/* ------------------- ANTD ------------------- */}
+
+      {/* <NavCom/>  */}
+      {/* <SliderCom/> */}
+
+      {/* ------------------- Local Storage ------------------- */}
+
+      {/* <LocalStorage /> */}
+      {/* <Test /> */}
+      <UserDataLs/>
 
     </div>
 
