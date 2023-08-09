@@ -4,7 +4,7 @@ import { useState } from 'react'
 // file
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
+// import './App.css'
 import MapFun_key from './Map-key/MapFun_key'
 import Props_Project from './props/props_Project'
 import Use_State_fun from './Use_State/Use_State_fun'
@@ -36,8 +36,11 @@ import PropsArr from './Props_pro/PropsArr'
 import NavCom from './ANTD/NavCom'
 import SliderCom from './ANTD/SliderCom'
 import LocalStorage from './localstorage/LocalStorage'
-import Test from './localstorage/test'
 import UserDataLs from './localstorage/UserDataLs'
+import Main from './propsLifting/Main'
+import Body from './ANTD/Body'
+import Footer from './ANTD/Footer'
+
 
 
 
@@ -94,14 +97,20 @@ function App() {
 
       {/* ------------------- ANTD ------------------- */}
 
-      {/* <NavCom/>  */}
-      {/* <SliderCom/> */}
+      <NavCom />
+      <SliderCom />
+      <Body/>
+      <Footer/>
 
       {/* ------------------- Local Storage ------------------- */}
 
       {/* <LocalStorage /> */}
       {/* <Test /> */}
-      <UserDataLs/>
+      {/* <UserDataLs/> */}
+
+      {/* ------------------- Props Lifting ------------------- */}
+
+      {/* <Main /> */}
 
     </div>
 

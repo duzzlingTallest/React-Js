@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
 import "./uData.scss"
+import { Input } from 'antd';
 
 export default function UserDataLs() {
 
@@ -35,7 +36,7 @@ export default function UserDataLs() {
             uMail: "",
             uPass: "",
         })
-        localStorage.setItem("arrData",JSON.stringify([...arrData,data]))
+        localStorage.setItem("arrData", JSON.stringify([...arrData, data]))
     }
 
     // Delete the data from the input and store it in the state
@@ -63,17 +64,43 @@ export default function UserDataLs() {
         setArrData([...arrData])
         setData("")
         setIsNew(true)
+        // localStorage.
     }
 
     //Local Storage
 
-    useEffect(()=>{
-        console.log("---before---",arrData);
+    useEffect(() => {
+        console.log("---before---", arrData);
         let dataFromLocalStorage = localStorage.getItem("arrData");
-        let normalData = JSON.parse(dataFromLocalStorage);
-        setArrData(normalData) // state take some time to set
-        console.log("---after---,arr");
-    },[])
+        if (dataFromLocalStorage) {
+
+            let normalData = JSON.parse(dataFromLocalStorage);
+            setArrData(normalData) // state take some time to set
+            console.log("---after---,arr");
+        }
+    }, [])
+
+
+    // search
+
+    let [filterArr, setFiltereArr] = useState([...arrData])  // we get "[...arrData]" duplicate data 
+
+    useEffect(() => {
+        setFiltereArr([...arrData]) // to update display array when we add some value in storage array
+    }, [arrData])  // [arr] What is this 
+
+
+    function searchData(e) {
+        if (e?.target?.value?.length > 0) {
+            let data = arrData.filter((ele)=>{
+                return ele.includes(e.target.value);
+            });
+            setFiltereArr([...data])
+        } else {
+            setFiltereArr([...arrData])
+        }
+    }
+
 
     return (
         <>
@@ -124,10 +151,12 @@ export default function UserDataLs() {
                 </form>
             </div>
 
+
             {arrData.length > 0 ? (
 
                 <>
                     <h1 className='mt-5'>User DATA</h1>
+                    <Input className='mt-5 mb-5' type="text" placeholder='Search Here....!' onChange={(e) => searchData(e)} value={data.uName}/>
 
                     <div className='TableDiv'>
                         <Table className='mt-4' striped bordered hover>
@@ -143,7 +172,7 @@ export default function UserDataLs() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {arrData.map((e, i) => (
+                                {filterArr.map((e, i) => (
                                     <tr key={e}>
                                         <td>{i + 1}</td>
                                         <td>{e.uName}</td>

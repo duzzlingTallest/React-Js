@@ -1,35 +1,32 @@
 import React from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import "./Slider.css"
 
+import { Carousel } from 'antd';
+const contentStyle = {
+  height: '160px',
+  color: '#fff',
+  lineHeight: '160px',
+  textAlign: 'center',
+  background: '#364d79',
+};
 export default function SliderCom() {
-  const settings = {
-    // Set your slider configurations here
-    dots: true, // Display dots for navigation
-    infinite: true, // Allow infinite loop
-    autoplay: true, // Enable auto-play
-    autoplaySpeed: 3000, // Set the auto-play speed in milliseconds (3 seconds in this case)
-    slidesToShow: 1, // Number of slides to show at a time
-    slidesToScroll: 1, // Number of slides to scroll at a time
-  };
+
 
   return (
     <>
-      <Slider {...settings}>
-        {/* Add your slides here */}
-        <div>
-          <img className='img1' src="https://www.financialexpress.com/wp-content/uploads/2022/08/BMW-X7-50-Jahre-M-Edition.jpg?w=1024" alt="" />
+      <Carousel style={{ height: "50vh" }} autoplay>
+        <div style={contentStyle}>
+          <img style={{ height: "50vh", width: "100vw" }} src="https://images.pexels.com/photos/733745/pexels-photo-733745.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" />
         </div>
-        <div>
-          <h3>Slide 2</h3>
+        <div style={contentStyle}>
+          <img style={{ height: "50vh", width: "100vw" }} src="https://images.pexels.com/photos/3752194/pexels-photo-3752194.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" />
         </div>
-        <div>
-          <h3>Slide 3</h3>
+        <div style={contentStyle}>
+          <img style={{ height: "50vh", width: "100vw" }} src="https://images.pexels.com/photos/3422964/pexels-photo-3422964.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" />
         </div>
-        {/* Add more slides as needed */}
-      </Slider>
+        <div style={contentStyle}   >
+          <img style={{ height: "50vh", width: "100vw" }} src="https://images.pexels.com/photos/1213294/pexels-photo-1213294.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" />
+        </div>
+      </Carousel>
     </>
   );
 }

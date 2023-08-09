@@ -1,41 +1,90 @@
 import React, { useEffect, useState } from "react";
+import { Button, Form, Table } from "react-bootstrap";
 
-export default function Test() {
-    let [name, setName] = useState("");
-    let [arr, setArr] = useState([]);
-    function getName(e) {
-        setName(e?.target?.value);
+export default function SearchText() {
+  let [name, setName] = useState("");
+  let [arr, setArr] = useState([]);
+  let [filterArr, setFiltereArr] = useState([...arr]);
+
+  useEffect(() => {
+    setFiltereArr([...arr]);
+    // to update display array when we add some value in storage array
+  }, [arr]);
+
+  function getName(e) {
+    setName(e?.target?.value);
+  }
+
+  function addName(params) {
+    setArr([...arr, name]);
+    setName("");
+  }
+
+  
+  function searchData(e) {
+    if (e?.target?.value?.length > 0) {
+      let data = arr.filter((ele) => {
+        return ele.includes(e.target.value);
+      });
+      setFiltereArr([...data]);
+    } else {
+      setFiltereArr([...arr]);
     }
+  }
 
-    useEffect(() => {
-        // console.log("--before--", arr);
-        let dataFromLocalStorage = localStorage.getItem("arrData");
-        let normalData = JSON.parse(dataFromLocalStorage);
-        setArr(normalData); // state take some time to set
-        // console.log("--after--", arr);
-    }, []);
+  return (
+    <>
+      <div className="w-50  p-2">
+        <Form className="border border-dark p-4 rounded mb-3">
+          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Label>Name</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Sonu Patel"
+              onChange={(e) => getName(e)}
+              value={name}
+            />
+          </Form.Group>
+          <Button onClick={() => addName()} variant="success">
+            Add
+          </Button>
+        </Form>
 
-    function addName(params) {
-        setArr([...arr, name]); // add name in array and also copy old array
-        setName(""); // for do input empty on click of add btn
-        localStorage.setItem("arrData", JSON.stringify([...arr, name]));
-    }
+        <Form.Control
+          type="text"
+          placeholder="Search Text...!"
+          onChange={(e) => searchData(e)}
+        />
 
-    return (
-        <>
-            <h1>{name}</h1>
-            <label htmlFor="name">Name : </label>
-            <input type="text" id="name" onChange={(e) => getName(e)} value={name} />
-            <button onClick={() => addName()}>Add Name</button>
-            <div style={{ color: "white", backgroundColor: "lightcoral" }}>
-                {arr.map((e, i) => {
-                    return <h1 key={i}>{e}</h1>;
-                })}
-            </div>
-        </>
-    );
+        {/* <Button className="mt-4" onClick={() => searchData()} variant="success">
+          search
+        </Button> */}
+
+        {arr.length > 0 ? (
+          <>
+            <h1> Data Table</h1>
+            <Table className="  mt-4" striped bordered hover>
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>Name</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filterArr.map((e, i) => (
+                  <tr key={i}>
+                    <td>{i + 1}</td>
+                    <td>{e}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          </>
+        ) : (
+          <h1>Data Not Available....!</h1>
+        )}
+      </div>
+    </>
+  );
 }
-
-// let arr =[1,2,3]
-
-// let narr = [...arr,4]
