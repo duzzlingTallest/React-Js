@@ -1,54 +1,54 @@
 //Package
-import { useState } from 'react'
+import { useState } from "react";
 
 // file
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
 // import './App.css'
-import MapFun_key from './Map-key/MapFun_key'
-import Props_Project from './props/props_Project'
-import Use_State_fun from './Use_State/Use_State_fun'
-import Use_State_Class from './Use_State/Use_State_Class'
-import Project1 from './Use_State/Project1'
-import Project2 from './Use_State/Project2'
-import ConditionalRen from './ConditionalRendaring_map/ConditionalRen'
-import PropFun from './props/PropFun'
-import MapFun_key2 from './Map-key/MapFun_key2'
+import MapFun_key from "./Map-key/MapFun_key";
+import Props_Project from "./props/props_Project";
+import Use_State_fun from "./Use_State/Use_State_fun";
+import Use_State_Class from "./Use_State/Use_State_Class";
+import Project1 from "./Use_State/Project1";
+import Project2 from "./Use_State/Project2";
+import ConditionalRen from "./ConditionalRendaring_map/ConditionalRen";
+import PropFun from "./props/PropFun";
+import MapFun_key2 from "./Map-key/MapFun_key2";
 
-import Button from 'react-bootstrap/Button';
+import Button from "react-bootstrap/Button";
 
-import InputCom from './Input/Input_name'
-import { Form } from 'react-bootstrap'
-import Input_Add from './Input/Input_Add'
-import Input_name from './Input/Input_name'
-import Input_num from './Input/Input_num'
-import Card from 'react-bootstrap/Card';
-import Multi_input from './Input/Car_details'
-import Car_details from './Input/Car_details'
-import City_data from './Input/City_data'
-import UserData from './Input/UserData'
-import User_Data_Class from './Input/User_Data_Class'
-import Update from './Input/Update'
-import Pop_pop from './Input/Pop_pop'
-import Api from './API/Api'
-import Api_2 from './API/Api_2'
-import PropsArr from './Props_pro/PropsArr'
-import NavCom from './ANTD/NavCom'
-import SliderCom from './ANTD/SliderCom'
-import LocalStorage from './localstorage/LocalStorage'
-import UserDataLs from './localstorage/UserDataLs'
-import Main from './propsLifting/Main'
-import Body from './ANTD/Body'
-import Footer from './ANTD/Footer'
-
-
-
+import InputCom from "./Input/Input_name";
+import { Form } from "react-bootstrap";
+import Input_Add from "./Input/Input_Add";
+import Input_name from "./Input/Input_name";
+import Input_num from "./Input/Input_num";
+import Card from "react-bootstrap/Card";
+import Multi_input from "./Input/Car_details";
+import Car_details from "./Input/Car_details";
+import City_data from "./Input/City_data";
+import UserData from "./Input/UserData";
+import User_Data_Class from "./Input/User_Data_Class";
+import Update from "./Input/Update";
+import Pop_pop from "./Input/Pop_pop";
+import Api from "./API/Api";
+import Api_2 from "./API/Api_2";
+import PropsArr from "./Props_pro/PropsArr";
+import NavCom from "./ANTD/NavCom";
+import SliderCom from "./ANTD/SliderCom";
+import LocalStorage from "./localstorage/LocalStorage";
+import UserDataLs from "./localstorage/UserDataLs";
+import Main from "./propsLifting/Main";
+import Body from "./ANTD/Body";
+import Footer from "./ANTD/Footer";
+import AddPro from "./Form/AddPro";
+import UseRefCom from "./useRef/UseRefCom";
+import Router from "./Router/Router";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
-    <div className='w-100%'>
+    <div className="w-100%">
       {/* ------------------- Use State -------------------*/}
       {/* 
     <Use_State_fun/>
@@ -68,7 +68,6 @@ function App() {
       <PropFun arr={[1, 2, 3, 4, 5, 6, 7, 8, 9]} /> */}
 
       {/* <Props_Project inputType={"email"}/> */}
-
 
       {/* ------------------- Map-Key ------------------- */}
       {/* <MapFun_key/> */}
@@ -97,10 +96,10 @@ function App() {
 
       {/* ------------------- ANTD ------------------- */}
 
-      <NavCom />
+      {/* <NavCom />
       <SliderCom />
       <Body/>
-      <Footer/>
+      <Footer/> */}
 
       {/* ------------------- Local Storage ------------------- */}
 
@@ -112,10 +111,19 @@ function App() {
 
       {/* <Main /> */}
 
+      {/* ------------------- Add Product Form ------------------- */}
+
+      {/* <AddPro/>  */}
+
+      {/* ------------------- useRef ------------------- */}
+
+      {/* <UseRefCom /> */}
+
+      {/* ------------------- Router ------------------- */}
+
+      <Router />
     </div>
-
-  )
-
+  );
 }
 
-export default App
+export default App;

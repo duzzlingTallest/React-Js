@@ -15,6 +15,7 @@ export default function UserDataLs() {
     })
 
     let [arrData, setArrData] = useState([])
+    let [searchText, setSearchText] = useState("")
 
     // to get the data from the input and store it in the state
 
@@ -87,13 +88,14 @@ export default function UserDataLs() {
 
     useEffect(() => {
         setFiltereArr([...arrData]) // to update display array when we add some value in storage array
-    }, [arrData])  // [arr] What is this 
+    }, [arrData])  // [arr] What is this ??
 
 
     function searchData(e) {
+        setSearchText(e.target.value)
         if (e?.target?.value?.length > 0) {
-            let data = arrData.filter((ele)=>{
-                return ele.includes(e.target.value);
+            let data = arrData.filter((ele) => {
+                return ele?.uName.includes(e.target.value);
             });
             setFiltereArr([...data])
         } else {
@@ -156,7 +158,7 @@ export default function UserDataLs() {
 
                 <>
                     <h1 className='mt-5'>User DATA</h1>
-                    <Input className='mt-5 mb-5' type="text" placeholder='Search Here....!' onChange={(e) => searchData(e)} value={data.uName}/>
+                    <Input className='mt-5 mb-5' type="text" placeholder='Search Here....!' onChange={(e) => searchData(e)} value={searchText} />
 
                     <div className='TableDiv'>
                         <Table className='mt-4' striped bordered hover>
@@ -173,7 +175,7 @@ export default function UserDataLs() {
                             </thead>
                             <tbody>
                                 {filterArr.map((e, i) => (
-                                    <tr key={e}>
+                                    <tr key={i}>
                                         <td>{i + 1}</td>
                                         <td>{e.uName}</td>
                                         <td>{e.uNum}</td>

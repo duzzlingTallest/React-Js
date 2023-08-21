@@ -14,8 +14,13 @@ nav {
     transition: background-color 0.3s;
 }
 
-.logo {
-    font-size: 24px;
+.nav {
+    /* background-color: rgb(152, F198, 89); */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
 }
 
 .menu {
